@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 function RenderCampsite({ campsite }) {
@@ -20,9 +20,9 @@ function RenderComments({ comments }) {
         return (
             <div className="col-md-5 m-1">
                 <h4>Comments</h4>
-                {this.props.campsite.comments.map(comment => {
+                {comments.map(comment => {
                     return (
-                        <div key={this.props.campsite.comments.id}>
+                        <div key={comment.id}>
                             <p> {comment.text} </p>
                             <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))} </p>
                         </div>
@@ -40,8 +40,8 @@ function CampsiteInfo(props) {
         return (
             <div className="container">
                 <div className="row">
-                    {this.renderCampsite(props.campsite)}
-                    {this.renderComments(props.campsite.comments)}
+                    <RenderCampsite campsite={props.campsite} />
+                    <RenderComments comments={props.campsite.comments} />
                 </div>
             </div>
         );
@@ -51,4 +51,4 @@ function CampsiteInfo(props) {
 }
 
 
-export default CampsiteInfo
+export default CampsiteInfo;
