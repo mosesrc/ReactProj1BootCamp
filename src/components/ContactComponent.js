@@ -39,7 +39,7 @@ class Contact extends Component {
             if (firstName.length < 2) {
                 errors.firstName = 'First name must be at least 2 characters.';
             } else if (firstName.length > 15) {
-                errors.firstName = 'First name must be 15 or less characters.';
+                errors.firstName = 'First name must be 15 or less characters.'; 
             }
         }
 
